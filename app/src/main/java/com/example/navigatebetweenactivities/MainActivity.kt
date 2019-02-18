@@ -12,16 +12,28 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
         buttonSend.setOnClickListener {
+            val message: String = editTextMsg.text.toString()
 
-            val message:String = editTextMsg.text.toString()
-            Toast.makeText(this,message,Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
 
-            val intent = Intent(this,SecondActivity::class.java)
-            intent.putExtra("user_msg",message)
+            val intent = Intent(this, SecondActivity::class.java)
+            intent.putExtra("user_msg", message)
             startActivity(intent)
-
-
         }
+            buttonShare.setOnClickListener {
+                val intent  = Intent ()
+
+                val message:String = editTextMsg.text.toString()
+
+                intent.action=Intent.ACTION_SEND
+                intent.putExtra(Intent.EXTRA_TEXT,message)
+                intent.type="text/plain"
+                startActivity(Intent.createChooser(intent,"Share To : "))
+            }
+
+
+
     }
 }
