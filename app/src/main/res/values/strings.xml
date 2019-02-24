@@ -4,4 +4,5 @@
     <string name="sendData">Send Data To Next Activity</string>
     <string name="title_activity_second">SecondActivity</string>
     <string name="textShare">Share to Other Applications</string>
+    <string name="btnTextRecyler">Recycler View Demo</string>
 </resources>
